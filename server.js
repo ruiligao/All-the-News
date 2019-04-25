@@ -19,7 +19,11 @@ app.use(express.static("public"));
 app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
 app.set('view engine', 'handlebars');
 
-mongoose.connect("mongodb://localhost/allNews", { useNewUrlParser: true });
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines";
+
+mongoose.connect(MONGODB_URI);
+
+// mongoose.connect("mongodb://localhost/allNews", { useNewUrlParser: true });
 
 app.get("/scrape", function (req, res) {
     axios.get("https://www.washingtonpost.com/").then(function (res) {
