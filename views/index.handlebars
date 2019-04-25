@@ -1,0 +1,35 @@
+{{!-- <nav class="navbar navbar-light bg-light">
+  <form class="form-inline">
+    <button id= "scrape" class="btn btn-outline-success" type="button">Scrape the News</button>
+  </form>
+</nav> --}}
+<div class="container" id='wrapper'>
+    <h1>Find the News that You Have Interest</h1>
+    <hr>
+    <div id='articles'>
+        <ul>
+            {{#each articles}}
+            <div class='articles' data-Id="{{_id}}" data-title="{{title}}">
+                <p>data-Id= "{{_id}}"</p>
+                <p>Title: {{title}}</p>
+                <p>Summary: {{summary}}</p>
+                <a href='{{link}}'>Link</a>
+                <hr>
+            </div>
+        </ul>
+        {{/each}}
+        </ul>
+
+    </div>
+    <div id="notes">
+        <form>
+            <input id="entryId" class='d-none'>
+            <h4>Title:</h4>
+            <input class="h5" id='titleinput' name='title'></input>
+            <h4>Note:</h4>
+            <textarea id="bodyinput" type="text" name='note'></textarea>
+            <button id='save' data-id='{{this._id}}' type='submit'>Save</button>
+            <button id='delete' type='submit'>Delete</button>
+        </form>
+    </div>
+</div>
